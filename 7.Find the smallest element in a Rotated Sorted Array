@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int findMin(int arr[], int n) {
+    int left = 0, right = n - 1;
+    while (left < right) {
+        int mid = left + (right - left) / 2;
+        if (arr[mid] > arr[right])
+            left = mid + 1;
+        else
+            right = mid;
+    }
+    return arr[left];
+}
+
+int main() {
+    int arr[] = {7, 8, 1, 2, 3, 4, 5, 6};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    cout << "Smallest element: " << findMin(arr, n) << endl;
+    return 0;
+}
